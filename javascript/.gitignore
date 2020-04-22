@@ -1,0 +1,11 @@
+# directories
+node_modules
+tmp
+
+# files
+.DS_Store
+.idea
+*.iml
+*.log
+npm-debug.log*
+Thumbs.db
