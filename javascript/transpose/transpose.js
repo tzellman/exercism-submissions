@@ -9,8 +9,8 @@
 
 const PADDING = '💩';
 export const transpose = (rows) => {
-    // find the max width and its index
-    const maxWidth = rows.reduce((max, row) => (row.length > max ? row.length : max), 0);
+    // find the max width
+    const maxWidth = Math.max(...rows.map((row) => row.length));
 
     const cols = [];
     const appendToCol = (index, value) => {
