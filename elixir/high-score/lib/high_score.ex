@@ -1,7 +1,9 @@
 defmodule HighScore do
+  @initial_score 0
+
   def new(), do: %{}
 
-  def add_player(scores, name, score \\ 0) do
+  def add_player(scores, name, score \\ @initial_score) do
     scores |> Map.put(name, score)
   end
 
@@ -10,10 +12,10 @@ defmodule HighScore do
   end
 
   def reset_score(scores, name) do
-    scores |> Map.update(name, 0, fn _ -> 0 end)
+    scores |> Map.update(name, @initial_score, fn _ -> @initial_score end)
   end
 
-  def update_score(scores, name, score \\ 0) do
+  def update_score(scores, name, score) do
     scores |> Map.update(name, score, &(&1 + score))
   end
 
