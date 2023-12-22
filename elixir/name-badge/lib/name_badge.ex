@@ -1,15 +1,12 @@
 defmodule NameBadge do
-  @owner "owner"
+  @owner "OWNER"
 
   def print(id, name, department) do
-    [id_str(id), name, department_str(department)]
-    |> Enum.filter(fn x -> x end)
-    |> Enum.join(" - ")
+    with id_str <- if(is_nil(id), do: nil, else: "[#{id}]"),
+         department_str <- if(is_nil(department), do: @owner, else: String.upcase(department)) do
+      [id_str, name, department_str]
+      |> Enum.filter(fn x -> x end)
+      |> Enum.join(" - ")
+    end
   end
-
-  defp id_str(nil), do: nil
-  defp id_str(id), do: "[#{id}]"
-
-  defp department_str(nil), do: department_str(@owner)
-  defp department_str(department), do: department |> String.upcase()
 end
