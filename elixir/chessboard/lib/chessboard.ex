@@ -8,6 +8,6 @@ defmodule Chessboard do
   end
 
   def files do
-    file_range() |> Enum.map(fn x -> [x] |> List.to_string() end)
+    file_range() |> Enum.map(fn x -> <<x>> end)
   end
 end
