@@ -4,7 +4,7 @@ defmodule CaptainsLog do
   def random_planet_class(), do: Enum.random(@planetary_classes)
 
   def random_ship_registry_number() do
-    ship_number = (999 + :rand.uniform(9000)) |> Integer.to_string()
+    ship_number = 1000..9999 |> Enum.random()
     "NCC-#{ship_number}"
   end
 
